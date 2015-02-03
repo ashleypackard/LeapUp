@@ -11,7 +11,9 @@
 			<label for="pass-signin">Password: </label>
 			<input required id="pass-signin" name="pass-signin" type="password" placeholder="Password"/>
 			</br>
-			<input type="submit" value="Login" />
+			<%= link_to users_home_path, class: "btn btn-default", id: "sign_in_btn" do %>
+				<span>Login</span>
+			<% end %>
 
 		</form>
 	</div>

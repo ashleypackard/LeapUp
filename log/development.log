@@ -120,3 +120,192 @@ Started GET "/" for 127.0.0.1 at 2015-01-31 23:38:53 -0500
 Processing by Rails::WelcomeController#index as HTML
   Rendered /home/ashley/.rvm/gems/ruby-2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
 Completed 200 OK in 41ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-02 22:58:17 -0500
+Processing by AccountsController#index as HTML
+  Rendered accounts/index.html.erb within layouts/login (11.9ms)
+Completed 200 OK in 901ms (Views: 864.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/accounts-7258f731f259513c263b19152bdacbfe.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:18 -0500
+
+
+Started GET "/assets/application-a495ae958e23b6d4158544ece2912c7e.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/profile-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/home-eb8af4ccb83d55048a2035624d28ca86.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/layout_app-56332654ac4530bfa92142a648f4f415.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/application-4141b6aa7b20027132f6276577fa5a65.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/layout_login-c7844ed63f0f083797f703d0fe72b9a4.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/bootstrap.min-c12b27772402bde52d3f1c6b55908305.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/bootstrap.min-759065b3d223bc01ce2f7ad79e06c909.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/accounts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/assets/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-02 22:58:19 -0500
+
+
+Started GET "/accounts/register" for 127.0.0.1 at 2015-02-02 22:58:22 -0500
+Processing by AccountsController#register as HTML
+  Rendered accounts/register.html.erb within layouts/login (0.8ms)
+Completed 200 OK in 112ms (Views: 111.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/register" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+Processing by AccountsController#register as HTML
+  Rendered accounts/register.html.erb within layouts/login (7.3ms)
+Completed 200 OK in 188ms (Views: 187.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min-c12b27772402bde52d3f1c6b55908305.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/accounts-5f877db104e34319fd2131dc8e761866.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/application-82a57f92efbdf1c78611583ce44cf1e0.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/bootstrap.min-759065b3d223bc01ce2f7ad79e06c909.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/accounts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/layout_app-56332654ac4530bfa92142a648f4f415.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/application-4141b6aa7b20027132f6276577fa5a65.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/profile-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/home-eb8af4ccb83d55048a2035624d28ca86.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/layout_login-c7844ed63f0f083797f703d0fe72b9a4.css?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-02-02 22:58:41 -0500
+
+
+Started GET "/accounts/index" for 127.0.0.1 at 2015-02-02 22:58:44 -0500
+Processing by AccountsController#index as HTML
+  Rendered accounts/index.html.erb within layouts/login (0.8ms)
+Completed 200 OK in 112ms (Views: 111.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/home" for 127.0.0.1 at 2015-02-02 22:58:48 -0500
+Processing by UsersController#home as HTML
+  Rendered users/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 131ms (Views: 129.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2015-02-02 22:58:58 -0500
+Processing by UsersController#profile as HTML
+  Rendered users/profile.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 124ms (Views: 123.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/home" for 127.0.0.1 at 2015-02-02 22:59:00 -0500
+Processing by UsersController#home as HTML
+  Rendered users/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 126ms (Views: 125.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/profile" for 127.0.0.1 at 2015-02-02 22:59:02 -0500
+Processing by UsersController#profile as HTML
+  Rendered users/profile.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 103ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/home" for 127.0.0.1 at 2015-02-02 22:59:04 -0500
+Processing by UsersController#home as HTML
+  Rendered users/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 119ms (Views: 118.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+Processing by AccountsController#index as HTML
+  Rendered accounts/index.html.erb within layouts/login (0.3ms)
+Completed 200 OK in 146ms (Views: 143.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min-c12b27772402bde52d3f1c6b55908305.css?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/layout_app-56332654ac4530bfa92142a648f4f415.css?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/profile-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/bootstrap.min-759065b3d223bc01ce2f7ad79e06c909.js?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/turbolinks-da8ddad9c2c5483d4c5c30c1ce325253.js?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/accounts-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/application-4141b6aa7b20027132f6276577fa5a65.js?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/users-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/assets/home-eb8af4ccb83d55048a2035624d28ca86.css?body=1" for 127.0.0.1 at 2015-02-02 22:59:08 -0500
+
+
+Started GET "/accounts/register" for 127.0.0.1 at 2015-02-02 22:59:11 -0500
+Processing by AccountsController#register as HTML
+  Rendered accounts/register.html.erb within layouts/login (0.3ms)
+Completed 200 OK in 110ms (Views: 109.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/home" for 127.0.0.1 at 2015-02-02 22:59:12 -0500
+Processing by UsersController#home as HTML
+  Rendered users/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 161ms (Views: 160.7ms | ActiveRecord: 0.0ms)

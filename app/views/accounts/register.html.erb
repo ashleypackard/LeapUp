@@ -54,7 +54,9 @@
 
 			<tr>
 				<td colspan="2" id="submit_btn">
-					<input type="submit" value="Create Account" />
+					<%= link_to users_home_path, class: "btn btn-default", id: "sign_up_btn" do %>
+						<span>Create Account</span>
+					<% end %>
 				</td>
 			</tr>
 		</table>
