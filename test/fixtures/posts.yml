@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  location: MyString
+  meeting_date: 2015-02-10
+  meeting_time: 2015-02-10 19:39:57
+  account_id: 
+  category_id: 
+
+two:
+  title: MyString
+  body: MyString
+  location: MyString
+  meeting_date: 2015-02-10
+  meeting_time: 2015-02-10 19:39:57
+  account_id: 
+  category_id: 
