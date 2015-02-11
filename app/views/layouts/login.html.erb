@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeapUp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'layout_login', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+  	<span class="navbar-brand" id="login_brand">LeapUp</span>
+  	
+  	<% if params[:action] == "index" %>
+			<%= link_to accounts_register_path, class: "btn btn-default navbar-btn" do %>
+				<i class="glyphicon glyphicon-user"></i>
+				<span>Sign Up</span>
+			<% end %>
+		<% else %>
+			<%= link_to accounts_index_path, class: "btn btn-default navbar-btn" do %>
+				<i class="glyphicon glyphicon-sunglasses"></i>
+				<span>Sign In</span>
+			<% end %>
+		<% end %>
+
+
+  		
+  </div>
+</nav>
+
+<div class="container">
+	<%= yield %>
+</div>
+
+</body>
+</html>

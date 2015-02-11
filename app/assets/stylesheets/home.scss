@@ -1,0 +1,38 @@
+.post_container{
+	// background-color: lightgrey;
+}
+
+.post {
+	width: 50%;
+	// border-radius:10px;
+	border: 1px solid #368F28;
+}
+
+.post .top, .post .bottom { 
+	padding: 7px;
+}
+
+.post .title{
+	font-size: 24px;
+}
+
+.post div.cat-running {
+	background-color: #BDFEB3;
+}
+
+.post div.cat-pool {
+	background-color: #FFDC6F;
+}
+
+.post div.bottom {
+	background-color: white;
+}
+
+.post .left-col {
+	color: grey;
+	margin-top: 15px;
+}
+
+.post button {
+	float:right;
+}

@@ -1,0 +1,20 @@
+<div>
+	
+	<div id="login_form_holder">
+		
+		<span class="form_header">Sign In</span>
+
+		<form id="sign_in_form">
+			<label for="username">Email: </label>
+			<input required id="user_name" name="username" type="text" placeholder="xxxxx@wit.edu"/>
+			</br>
+			<label for="pass-signin">Password: </label>
+			<input required id="pass-signin" name="pass-signin" type="password" placeholder="Password"/>
+			</br>
+			<%= link_to users_home_path, class: "btn btn-default", id: "sign_in_btn" do %>
+				<span>Login</span>
+			<% end %>
+
+		</form>
+	</div>
+</div>

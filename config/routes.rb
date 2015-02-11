@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
+  get 'accounts/index'
+
+  get 'accounts/login'
+
+  get 'accounts/logout'
+
+  get 'accounts/register'
+
+  root 'accounts#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  get 'users/home'
+  get 'users/profile'
+  
+  #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
