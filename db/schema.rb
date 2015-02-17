@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20150217011416) do
     t.integer  "category_id", limit: 4, null: false
   end
 
-  add_index "account_categories", ["account_id"], name: "fk_rails_bd620c1358", using: :btree
-  add_index "account_categories", ["category_id"], name: "fk_rails_d8ed08a0e9", using: :btree
+  add_index "account_categories", ["account_id"], name: "fk_rails_14653fb240", using: :btree
+  add_index "account_categories", ["category_id"], name: "fk_rails_1d48cf3355", using: :btree
 
   create_table "accounts", force: :cascade do |t|
     t.string   "first_name",      limit: 255,   null: false
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20150217011416) do
     t.integer  "post_id",    limit: 4,     null: false
   end
 
-  add_index "comments", ["account_id"], name: "fk_rails_a2460c4c39", using: :btree
-  add_index "comments", ["post_id"], name: "fk_rails_2e110d85b8", using: :btree
+  add_index "comments", ["account_id"], name: "fk_rails_1fcb1ea85c", using: :btree
+  add_index "comments", ["post_id"], name: "fk_rails_6b63ca7cd2", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",        limit: 75,    null: false
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150217011416) do
     t.integer  "category_id",  limit: 4,     null: false
   end
 
-  add_index "posts", ["account_id"], name: "fk_rails_e2d92d77f0", using: :btree
-  add_index "posts", ["category_id"], name: "fk_rails_73d019b053", using: :btree
+  add_index "posts", ["account_id"], name: "fk_rails_c68534f4fc", using: :btree
+  add_index "posts", ["category_id"], name: "fk_rails_1d4b7c5b1f", using: :btree
 
   add_foreign_key "account_categories", "accounts"
   add_foreign_key "account_categories", "categories"

@@ -14,6 +14,13 @@ Rails.application.routes.draw do
   get 'users/home'
   get 'users/profile'
   
+  resources :users do
+  resources :posts, shallow: true do
+      resources :comments, only: [:index, :new, :create]
+    end
+  end
+  resources :comments, only: [:edit, :update, :destroy]
+
   #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
