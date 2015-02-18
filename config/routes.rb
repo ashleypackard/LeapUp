@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'users/home'
   get 'users/profile'
   
-  resources :users do
+  resources :accounts do
   resources :posts, shallow: true do
       resources :comments, only: [:index, :new, :create]
     end
