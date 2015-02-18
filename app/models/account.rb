@@ -19,7 +19,8 @@ class Account < ActiveRecord::Base
 
 	VALID_PHONE_REGEX = /\A[\d]{10}\z/i
 	validates :phone_number, length: {maximum: 10},
-													 format: {with: VALID_PHONE_REGEX}
+													 format: {with: VALID_PHONE_REGEX},
+													 allow_blank: true
 
 
 end

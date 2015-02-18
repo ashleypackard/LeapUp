@@ -1,0 +1,69 @@
+<div id="login_form_holder">
+	<span class="form_header">Sign Up</span>
+		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
+			<% if @account.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@account.errors.count, "error") %> prohibited
+		        this account from being saved:
+		      </h2>
+		      <ul>
+		        <% @account.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+			<table id="sign_up_table">
+			<tr>
+				<td class="labels">
+					<%= f.label :first_name, 'First Name: ' %>
+				</td>
+				<td>
+					<%= f.text_field :first_name, required: true, placeholder: "Joe" %>
+				</td>
+			</tr>
+			<tr>
+				<td class="labels">
+					<%= f.label :last_name, 'Last Name: ' %>
+				</td>
+				<td>
+					<%= f.text_field :last_name, required: true, placeholder: "Smith" %>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="labels">
+					<%= f.label :email, 'Email: ' %>
+				</td>
+				<td>
+					<%= f.text_field :email, required: true, placeholder: "smithj@wit.edu" %>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="labels">
+					<%= f.label :password, 'Password: ' %>
+				</td>
+				<td>
+					<%= f.password_field :password, required: true, placeholder: "Password" %>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="labels">
+					<%= f.label :password_confirmation, 'Confirm Password: ' %>
+				</td>
+				<td>
+					<%= f.password_field :password_confirmation, required: true, placeholder: "Password Again" %>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" id="submit_btn">
+					<%= f.submit class: "btn btn-default", id: "sign_up_btn" %>
+				</td>
+			</tr>
+		<% end %>
+</div>
