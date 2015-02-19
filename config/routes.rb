@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/edit'
+
   get 'accounts/index'
 
   get 'accounts/login'

@@ -1,8 +1,8 @@
 class Account < ActiveRecord::Base
 
-	has_many :account_categories, :dependent :destroy
-	has_many :posts, :dependent :destroy
-	has_many :comments, :dependent :destroy
+	has_many :account_categories, dependent: :destroy
+	has_many :posts, dependent: :destroy
+	has_many :comments, dependent: :destroy
 
 	has_secure_password
 
