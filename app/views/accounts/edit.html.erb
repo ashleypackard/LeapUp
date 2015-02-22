@@ -1,4 +1,4 @@
-
+<%= content_for(:title, "Settings") %>
 <h1>Account Settings</h1>
 <%= form_for @account, html: { id: "sign_up_form"} do |f| %>
 	<% if @account.errors.any? %>
@@ -65,9 +65,10 @@
 			<%= f.submit class: "btn btn-default", id: "sign_up_btn" %>
 		</td>
 	</tr>
+	</table>
 <% end %>
 
-<h1>Delete your account</h1>
-<%= link_to 'Delete', account_path(@account),
+<h3>We're sorry to see you go!</h3>
+<%= link_to 'Delete Your Account', account_path(@account), class: "btn btn-danger",
              	 method: :delete,
              	 data: {confirm: "Are you sure?"} %>
