@@ -3,3 +3,48 @@
 	font-size: 35px;
 	margin-right: 10px;
 }
+
+/* DEBUG INFO */
+@mixin box_sizing {
+	-moz-box-sizing:    border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing:         border-box;
+}
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}
+
+// FOOTER STUFF
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid #eaeaea;
+	color: darkgrey;
+
+	a {
+		color: #555;
+	}
+
+	a:hover {
+		color: #222;
+	}
+
+	small {
+		float: left;
+	}
+
+	ul {
+		float: right;
+		list-style: none;
+
+		li {
+			float: left;
+			margin-left: 15px;
+		}
+	}
+}
