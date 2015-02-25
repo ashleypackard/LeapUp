@@ -1,22 +1,9 @@
 Rails.application.routes.draw do
-  get 'comments/new'
-
-  get 'comments/edit'
-
-  get 'accounts/index'
-
-  get 'accounts/login'
-
-  get 'accounts/logout'
-
-  get 'accounts/register'
 
   root 'accounts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get 'users/home'
-  get 'users/profile'
   
   resources :accounts do
   resources :posts, shallow: true do
@@ -24,6 +11,16 @@ Rails.application.routes.draw do
     end
   end
   resources :comments, only: [:edit, :update, :destroy]
+
+  get 'users/home'
+
+  get 'comments/new'
+  get 'comments/edit'
+
+  get 'accounts/index'
+  get 'accounts/login'
+  get 'accounts/logout'
+  get 'accounts/register'
 
   #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"

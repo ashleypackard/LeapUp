@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-	layout 'login', :only => [:new]
+	layout 'login', :only => [:new, :index]
 
   def index
   end
