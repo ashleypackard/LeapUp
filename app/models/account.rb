@@ -1,12 +1,14 @@
 class Account < ActiveRecord::Base
 
+	attr_accessor :remember_token
+
 	has_many :account_categories, dependent: :destroy
 	has_many :posts, dependent: :destroy
 	has_many :comments, dependent: :destroy
 
 	has_secure_password
 
-	before_save {email.downcase!}
+	before_save { self.email = email.downcase }
 	validates :first_name, presence: true, length: {maximum: 100}
 	validates :last_name, presence: true, length: {maximum: 100}
 	
@@ -22,12 +24,21 @@ class Account < ActiveRecord::Base
 	validates :phone_number, length: {maximum: 10},
 													 format: {with: VALID_PHONE_REGEX},
 													 allow_blank: true
+ 
+
+ # Returns the hash digest of the given string.
+  def Account.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
  # Returns a random token.
   def Account.new_token
     SecureRandom.urlsafe_base64
   end
 
-  # Remembers a accout in the database for use in persistent sessions.
+  # Remembers an account in the database for use in persistent sessions.
   def remember
     self.remember_token = Account.new_token
     update_attribute(:remember_digest, Account.digest(remember_token))

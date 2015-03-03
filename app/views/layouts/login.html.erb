@@ -13,13 +13,13 @@
   <div class="container">
   	<span class="navbar-brand" id="login_brand">LeapUp</span>
   	
-  	<% if params[:action] == "index" %>
+  	<% if params[:controller] == "sessions" %>
 			<%= link_to new_account_path, class: "btn btn-default navbar-btn" do %>
 				<i class="glyphicon glyphicon-user"></i>
 				<span>Sign Up</span>
 			<% end %>
 		<% else %>
-			<%= link_to accounts_index_path, class: "btn btn-default navbar-btn" do %>
+			<%= link_to login_path, class: "btn btn-default navbar-btn" do %>
 				<i class="glyphicon glyphicon-sunglasses"></i>
 				<span>Sign In</span>
 			<% end %>
@@ -31,7 +31,12 @@
 </nav>
 
 <div class="container">
+	<% flash.each do |message_type, message| %>
+  	<div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
 	<%= yield %>
+  <%= render "footer" %>
+  <%= debug(params) if Rails.env.development? %>
 </div>
 
 </body>

@@ -1,13 +1,11 @@
 class AccountsController < ApplicationController
-	layout 'login', :only => [:new, :index]
+	layout 'login', only: [:new]
+	before_action :logged_in_user, except: [:new, :create]
 
   def index
   end
 
-  def login
-  end
-
-  def logout
+  def home
   end
 
   # renders new.html.erb view ( register page )
@@ -19,11 +17,12 @@ class AccountsController < ApplicationController
 	def create
 		@account = Account.new(account_params)
 		if @account.save
+				log_in @account
 				redirect_to @account
 			else
 				# dont redirect if the form valication from the model fails
 				# instead return to the articles page and show any errors
-				render 'new'
+				render 'new', layout: "login"
 			end
 	end
 
@@ -52,7 +51,8 @@ class AccountsController < ApplicationController
 	def destroy
 		@account = Account.find(params[:id])
 		@account.destroy
-		redirect_to new_account_path # TODO: We really want this to go back to log in page
+		flash[:success] = "You have successfully deleted your account."
+		redirect_to login_path
 	end
 
 	private
@@ -67,4 +67,12 @@ class AccountsController < ApplicationController
 		def change_password_params
 			params.require(:account).permit(:password, :password_confirmation)
 		end
+
+		# Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in to access this part of the site."
+        redirect_to login_path
+      end
+    end
 end

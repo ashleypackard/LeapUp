@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	layout 'login', :only => [:new]
 
   def new
   end
@@ -11,12 +12,13 @@ class SessionsController < ApplicationController
       redirect_to account
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      render 'new', layout: "login"
     end
   end
 
   def destroy
     log_out if logged_in?
+    flash[:success] = "You have successfully logged out."
     redirect_to root_url
   end
 
