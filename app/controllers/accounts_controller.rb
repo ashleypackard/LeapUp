@@ -38,10 +38,10 @@ class AccountsController < ApplicationController
 	end
 
 	# Action to update account settings
-	def update
+	def update		
 		@account = Account.find(params[:id])
 
-		if @account.update(account_params)
+		if @account.update_attributes(edit_account_params)
 			redirect_to @account
 		else
 			render 'edit'
@@ -58,5 +58,13 @@ class AccountsController < ApplicationController
 	private
 		def account_params
 			params.require(:account).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		end
+
+		def edit_account_params
+			params.require(:account).permit(:first_name, :last_name, :description)
+		end
+
+		def change_password_params
+			params.require(:account).permit(:password, :password_confirmation)
 		end
 end

@@ -2,74 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// index
-
-#login_form_holder {
-	border: 1px solid #000000;
-	border-radius: 5px;
-	width: 50%;
-	padding: 10px;
-	margin: 0 auto;
-	margin-top: 25vh;
-	box-shadow: 2px 2px 2px #808080;
-	background-color: #B22222;
+#edit_form {
+	border-right: 1px solid lightgrey;
 }
 
-.form_header {
-	font-weight: bold;
-	font-size: 20px;
-	margin: 10px;
-	padding-bottom: 15px;
-	color: white;
-}
-
-#sign_in_form {
+#delete_container {
 	text-align: center;
 	margin: 0 auto;
-	margin-top: 25px;
+	top: 10%;
 }
 
-#sign_in_form > label, {
-	padding-bottom: 10px;
-	color: white;
+input, textarea {
+	margin-bottom: 10px;
 }
 
-
-#sign_in_form label[for="username"] {
-	margin-left: 30px;
-}
-
-#sign_in_form input[type="password"],
-#sign_in_form input[type="text"] {
-	padding: 5px;
-}
-
-#sign_in_btn {
-	width: 100px;
-}
-
-// register
-
-#sign_up_table {
-	width: 100%;
-}
-
-td.labels {
-	text-align: right;
-	color: white;
-	padding: 10px;
-}
-
-#sign_up_form input[type="text"],
-#sign_up_form input[type="password"] {
-	padding: 5px;
-}
-
-#sign_up_form input[type="submit"] {
+#sign_up_btn {
 	width: 200px;
 }
 
-#submit_btn {
+#submit_container {
 	text-align: center;
-	padding-top: 20px;
+	margin: 0 auto;
 }
