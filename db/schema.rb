@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217011416) do
+ActiveRecord::Schema.define(version: 20150303024451) do
 
   create_table "account_categories", force: :cascade do |t|
     t.datetime "created_at",            null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150217011416) do
     t.string   "phone_number",    limit: 10
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "remember_digest", limit: 255
   end
 
   create_table "categories", force: :cascade do |t|
