@@ -1,74 +1,68 @@
 <%= content_for(:title, "Settings") %>
 <h1>Account Settings</h1>
-<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
-	<% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@account.errors.count, "error") %> prohibited
-        this account from being saved:
-      </h2>
-      <ul>
-        <% @account.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+	<div class="form-group col-md-6" id="edit_form">
+		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
+			<% if @account.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@account.errors.count, "error") %> prohibited
+		        this account from being saved:
+		      </h2>
+		      <ul>
+		        <% @account.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
 
-	<table id="sign_up_table">
-	<tr>
-		<td class="labels">
-			<%= f.label :first_name, 'First Name: ' %>
-		</td>
-		<td>
-			<%= f.text_field :first_name, required: true, placeholder: "Joe" %>
-		</td>
-	</tr>
-	<tr>
-		<td class="labels">
-			<%= f.label :last_name, 'Last Name: ' %>
-		</td>
-		<td>
-			<%= f.text_field :last_name, required: true, placeholder: "Smith" %>
-		</td>
-	</tr>
+					<%= f.label :first_name, 'First Name: ' %>
+					<%= f.text_field :first_name, placeholder: "Joe", class: "form-control" %>
+					<%= f.label :last_name, 'Last Name: ' %>
+					<%= f.text_field :last_name, placeholder: "Smith", class: "form-control" %>
+					<%= f.label :email, 'Email: ' %>
+					<%= f.text_field :email, readonly: true, class: "form-control" %>
+					
+					<%= f.label :description, 'Bio: ' %>
+					<%= f.text_area :description, placeholder: "Add something about yourself...", class: "form-control" %>
 
-	<tr>
-		<td class="labels">
-			<%= f.label :email, 'Email: ' %>
-		</td>
-		<td>
-			<%= f.text_field :email, required: true, placeholder: "smithj@wit.edu" %>
-		</td>
-	</tr>
+					<div id="submit_container">
+						<%= f.submit class: "btn btn-primary", id: "sign_up_btn" %>						
+					</div>
+		<% end %>
 
-	<tr>
-		<td class="labels">
-			<%= f.label :password, 'Password: ' %>
-		</td>
-		<td>
-			<%= f.password_field :password, required: true, placeholder: "Password" %>
-		</td>
-	</tr>
+		<h2>Change Password</h2>
+		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
+			<% if @account.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@account.errors.count, "error") %> prohibited
+		        this account from being saved:
+		      </h2>
+		      <ul>
+		        <% @account.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
 
-	<tr>
-		<td class="labels">
-			<%= f.label :password_confirmation, 'Confirm Password: ' %>
-		</td>
-		<td>
-			<%= f.password_field :password_confirmation, required: true, placeholder: "Password Again" %>
-		</td>
-	</tr>
+					<%= f.label :password, 'Password: ' %>
+					<%= f.password_field :password, required: true, placeholder: "Password", class: "form-control" %>
+					<%= f.label :password_confirmation, 'Confirm Password: ' %>
+					<%= f.password_field :password_confirmation, required: true, placeholder: "Password Again", class: "form-control" %>
+					<div id="submit_container">
+						<%= f.submit "Change Password", class: "btn btn-primary", id: "sign_up_btn" %>						
+					</div>
+		<% end %>
 
-	<tr>
-		<td colspan="2" id="submit_btn">
-			<%= f.submit class: "btn btn-default", id: "sign_up_btn" %>
-		</td>
-	</tr>
-	</table>
-<% end %>
+	</div>
 
-<h3>We're sorry to see you go!</h3>
-<%= link_to 'Delete Your Account', account_path(@account), class: "btn btn-danger",
-             	 method: :delete,
-             	 data: {confirm: "Are you sure?"} %>
+	<div class="col-md-6" id="delete_container">
+		<h3>We're sorry to see you go!</h3>
+		<%= link_to 'Delete Your Account', account_path(@account), class: "btn btn-danger",
+		             	 method: :delete,
+		             	 data: {confirm: "Are you sure?"} %>
+	</div>
+</div>

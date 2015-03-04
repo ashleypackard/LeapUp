@@ -3,12 +3,18 @@
 <h5><%= "#{@account.email}" %></h5>
 <div class="row">
 	<div class="col-md-6">
-		<h3>Blurb</h3>
-		<p>Hello world! My name is <%= "#{@account.first_name}" %> and I'm a computer science major here at WIT. I am really looking to meet new people through this website who are interested in frisbee and running. Feel free to send me an email any time :)</p>
+		<h3><b>Bio</b></h3>
+		<p>
+		<% if @account.description.blank? %>
+			<i>Why don't you add a bio in the Account Settings page!</i>
+		<% else %>
+			<%= @account.description %>
+		<% end %>
+		</p>
 	</div>
 
 	<div class="col-md-6">
-		<h3>Interests</h3>
+		<h3><b>Interests</b></h3>
 		<ul>
 			<li>Pool</li>
 			<li>Running</li>
