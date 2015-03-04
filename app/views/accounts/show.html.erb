@@ -1,0 +1,24 @@
+<%= content_for(:title, "About") %>
+<h1><%= "#{@account.first_name} #{@account.last_name}" %></h1>
+<h5><%= "#{@account.email}" %></h5>
+<div class="row">
+	<div class="col-md-6">
+		<h3><b>Bio</b></h3>
+		<p>
+		<% if @account.description.blank? %>
+			<i>Why don't you add a bio in the Account Settings page!</i>
+		<% else %>
+			<%= @account.description %>
+		<% end %>
+		</p>
+	</div>
+
+	<div class="col-md-6">
+		<h3><b>Interests</b></h3>
+		<ul>
+			<li>Pool</li>
+			<li>Running</li>
+			<li>Frisbee</li>
+		</ul>
+	</div>
+</div>
