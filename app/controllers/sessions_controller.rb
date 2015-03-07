@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	layout 'login', :only => [:new]
+  skip_before_filter :logged_in_user, only: [:new, :create]
 
   def new
   end
