@@ -6,10 +6,10 @@
 				<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
 					<% if @account.errors.any? %>
 				    <div id="error_explanation">
-				      <h2>
+				      <h4>
 				        <%= pluralize(@account.errors.count, "error") %> prohibited
 				        this account from being saved:
-				      </h2>
+				      </h4>
 				      <ul>
 				        <% @account.errors.full_messages.each do |msg| %>
 				          <li><%= msg %></li>

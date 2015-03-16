@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   def index
+  	@posts = Post.all
   end
 
   # renders new.html.erb view ( make new post page )

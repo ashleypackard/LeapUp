@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
 	layout 'login', only: [:new]
-	before_action :logged_in_user, except: [:new, :create]
+	skip_before_filter :logged_in_user, only: [:new, :create]
 
   def index
   end
@@ -68,11 +68,4 @@ class AccountsController < ApplicationController
 			params.require(:account).permit(:password, :password_confirmation)
 		end
 
-		# Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in to access this part of the site."
-        redirect_to login_path
-      end
-    end
 end

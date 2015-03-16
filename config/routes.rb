@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :comments, only: [:edit, :update, :destroy]
+  resources :posts, only: [:index]
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

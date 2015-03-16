@@ -2,60 +2,68 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 #edit_form {
-	border-right: 1px solid lightgrey;
+border-right: 1px solid lightgrey;
 }
 
 #delete_container {
-	text-align: center;
-	margin: 0 auto;
+text-align: center;
+margin: 0 auto;
 }
 
 input, textarea {
-	margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
 #sign_up_btn {
-	width: 200px;
+width: 200px;
 }
 
 #submit_container {
-	text-align: center;
-	margin: 0 auto;
+text-align: center;
+margin: 0 auto;
 }
 
 // index
-
 .form_header {
-	font-weight: bold;
-	font-size: 28px;
-	padding-bottom: 15px;
+font-weight: bold;
+font-size: 28px;
+padding-bottom: 15px;
 }
 
-
 // register
-
 @mixin box_sizing {
-	-moz-box-sizing:    border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing:         border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
 }
 
 input, textare, select {
-	border: 1px solid #bbb;
-	width: 100%;
-	margin-bottom: 15px;
-	@include box_sizing;
+border: 1px solid #bbb;
+width: 100%;
+margin-bottom: 15px;
+@include box_sizing;
 }
 
 input {
-	height: auto !important;
+height: auto !important;
 }
 
 .account_form {
-	border: 1px solid black;
-	padding: 15px;
+border: 1px solid black;
+padding: 15px;
+border-radius: 10px;
+background-color: rgba(249, 211, 79, 0.6);
+}
+
+#error_explanation
+{
+	background: peachpuff;
+	padding: 5px;
 	border-radius: 10px;
-	background-color: rgba(249, 211, 79, 0.6);
-	box-shadow: 3px 3px 5px #888888;
+	//background-color: rgba(249, 211, 79, 0.6);
+	//box-shadow: 3px 3px 5px #888888;
+	border: 1px solid black;
+	margin: 10px;
 }
