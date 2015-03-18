@@ -1,0 +1,30 @@
+<div class="post-container <%= condenseCategoryName(post.category.name) %>-category">
+	<div class="post-top">
+		<span class="post-author">
+			<%= link_to account_path(post.account) do %>
+        <i class="glyphicon glyphicon-user"></i>
+        <span><%="#{post.account.first_name} #{post.account.last_name}"%></span>
+      <% end %>
+      <div class="triangle"></div>
+    </span>
+    <%= image_tag "#{condenseCategoryName(post.category.name)}.png", class: "post-symbol" %>
+	
+		<h4 class="post-title"><%= post.title %></h4>
+		<span class="post-category"><%= post.category.name %></span>
+    <div class="post-details">
+    	<span class="post-location">Meet at <%= post.location %></span>
+	    </br>
+	    <span class="post-meeting-date"><%= "#{(post.meeting_date).strftime("%A, %B %d, %Y") }" %></span>
+	    <span class="post-meeting-time">@ <%= "#{(post.meeting_time).strftime("%I:%M %p") }" %></span>
+    </div>
+	</div>
+	
+	<div class='post-bottom'>
+		<p class="post-body"><%= post.body %></p>
+  	<span class="post-posted-on-date">Posted 
+  		<abbr title="<%= "#{(post.created_at).in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y at %I:%M %p")}" %>">
+  			<%= "#{time_ago_in_words(post.created_at)} ago" %>
+  		</abbr>
+  	</span>
+	</div>
+</div>

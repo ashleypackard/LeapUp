@@ -1,15 +1,23 @@
 class AccountsController < ApplicationController
 	layout 'login', only: [:new]
-	skip_before_filter :logged_in_user, only: [:new, :create]
+	skip_before_action :require_login, only: [:new, :create]
+	before_action :validate_correct_account, only: [:edit, :update, :destroy]
 
   def index
   end
 
   def home
+  	@recent_posts = current_account.posts.order(:created_at).take(5)
+  	@related_posts = []
+  	current_account.categories.each do |category|
+  		category.posts.take(3).each { |post| @related_posts.push(post) if post.account != current_account }
+  	end
+  	@related_posts.shuffle!
   end
 
   # renders new.html.erb view ( register page )
 	def new
+		redirect_to current_user if logged_in?
 		@account = Account.new
 	end
 
@@ -20,7 +28,7 @@ class AccountsController < ApplicationController
 				log_in @account
 				redirect_to @account
 			else
-				# dont redirect if the form valication from the model fails
+				# dont redirect if the form validation from the model fails
 				# instead return to the articles page and show any errors
 				render 'new', layout: "login"
 			end
@@ -29,22 +37,53 @@ class AccountsController < ApplicationController
 	# renders show.html.erb ( a users profile page )
 	def show
 		@account = Account.find(params[:id])
+		@posts_list = @account.posts.paginate(page: params[:page], :per_page => 15)
+		@category_list = @account.categories
 	end
 
 	# renders edit.html.erb ( account settings page )
 	def edit
 		@account = Account.find(params[:id])
+		@categories = Category.all
 	end
 
 	# Action to update account settings
 	def update		
 		@account = Account.find(params[:id])
+		@account.updating_password = false
 
 		if @account.update_attributes(edit_account_params)
+			flash[:success] = "Your account settings have been successfully updated."
 			redirect_to @account
 		else
 			render 'edit'
 		end
+	end
+
+	def update_password
+		@account = Account.find(params[:id])
+		@account.updating_password = true
+
+		if @account.update_attributes(change_password_params)
+			flash[:success] = "Your password has been successfully updated."
+			redirect_to @account
+		else
+			render 'edit'
+		end
+	end
+
+	def update_categories
+		@account = Account.find(params[:id])
+		@account.account_categories.delete_all
+
+		if params[:categories]
+			params[:categories].each do |category|
+				@account.account_categories.create(category_id: category)
+			end
+		end
+
+		flash[:success] = "Your interests have been successfully updated."
+		redirect_to @account
 	end
 
 	# Action to delete account
@@ -56,16 +95,22 @@ class AccountsController < ApplicationController
 	end
 
 	private
+
 		def account_params
 			params.require(:account).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		end
+
+		def change_password_params
+			params.require(:account).permit(:password, :password_confirmation)
 		end
 
 		def edit_account_params
 			params.require(:account).permit(:first_name, :last_name, :description)
 		end
 
-		def change_password_params
-			params.require(:account).permit(:password, :password_confirmation)
-		end
+		def validate_correct_account
+		  @account = Account.find(params[:id])
+      redirect_to(root_url) unless current_account?(@account)
+	  end
 
 end

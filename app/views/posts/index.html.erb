@@ -6,46 +6,11 @@
 
 		<div id="search_box">
 			<p>The search box will go here...</p>
-
 		</div>
 	</div>
 
-	<div class="form-group col-md-6 col-md-offset-1" id="posts_feed">
-		
-		<% @posts.each do |post| %>
-			<%
-				 post_category = post.category_id
-				 post_account = post.account_id
-				 post_category_symbol_name = getCategoryName(post_category) + '.png'
-				 post_category_class = getCategoryName(post_category) + '-category'
-			 %>
-		  <div class="post-container <%= post_category_class %>">
-		  	<div class="post-top">
-		  		<span class="post-author">
-		  			<%= link_to account_path(post_account) do %>
-              <i class="glyphicon glyphicon-user"></i>
-              <span><%="#{getUserFullName(post_account)}"%></span>
-            <% end %>
-            <div class="triangle"></div>
-          </span>
-		  		<img src=<%="#{image_url post_category_symbol_name}"%> class="post-symbol"/>
-		  		<h4 class="post-title"><%= post.title %></h4>
-		  		<span class="post-category"><%= getCategory(post_category) %></span>
-			    <div class="post-details">
-			    	<span class="post-location">Meet at <%= post.location %></span>
-				    </br>
-				    <span class="post-meeting-date"><%= "#{(post.meeting_date).strftime("%A, %B %d, %Y") }" %></span>
-				    <span class="post-meeting-time">@ <%= "#{(post.meeting_time).strftime("%I:%M %p") }" %></span>
-			    </div>
-		  	</div>
-		  	
-		  	<div class='post-bottom'>
-		  		<p class="post-body"><%= post.body %></p>
-		    	<span class="post-posted-on-date">Posted on: <%= "#{(post.created_at).in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y at %I:%M %p") }" %></span>
-
-		  	</div>
-		  </div>
-		<% end %>
-
+	<div class="form-group col-md-6 col-md-offset-1">
+		<%= render @posts %>
+		<%= will_paginate @posts %>
 	</div>
 </div>

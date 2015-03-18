@@ -8,4 +8,8 @@ module ApplicationHelper
 			"#{page_title} | #{base_title}"
 		end
 	end
+
+	def condenseCategoryName(name)
+		name.gsub(/\s+/, "").downcase
+	end
 end

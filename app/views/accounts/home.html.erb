@@ -1,79 +1,22 @@
 <h1><%= "#{@current_account.first_name} #{@current_account.last_name}" %></h1>
 
-<h3>Your recent posts</h3>
-<div class="post_container">
-
-	<div class="post">
-		<div class="top cat-running">
-			<span class="title">Looking for a running partner</span><br>
-			<span>Category: <span class="category">Running</span></span>
-			<div class="row">
-				<div class="col-md-4">
-					<span>Location: <span class="location">Beatty Gym</span></span>
-				</div>
-				<div class="col-md-4">
-					<span>Date: <span class="date">2-12-15</span></span>
-				</div>
-				<div class="col-md-4">
-					<span>Time: <span class="time">10:30 am</span></span>
-				</div>
-			</div>
-			
-		</div>
-
-		<div class="bottom">
-		 	<p class="description">Need a running buddy! Let's go to the fens!</p>
-
-		 	<div class="row">
-				<div class="col-md-10 left-col">
-					<span>Posted on: <span class="postDate">January 1, 2015 at 1:34 pm</span></span>
-				</div>
-				<div class="col-md-2">
-					<button class="btn btn-primary">Comment</button>
-				</div>
-			</div>
-		 	
-		 
-		</div>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Your recent posts</h3>
+		<% if @recent_posts.any? %>
+			<%= render @recent_posts %>
+		<% else %>
+			<i>You do not have any posts yet! Why don't you make your first <%= link_tag "post", new_account_post_path(current_account) %>?</i>
+		<% end %>
 	</div>
 
-</div>
-
-<h3>Posts that interest you</h3>
-<div class="post_container">
-
-	<div class="post">
-		<div class="top cat-pool">
-			<span class="title">Pool partner wanted</span><br>
-			<span>Category: <span class="category">Pool</span></span>
-			<div class="row">
-				<div class="col-md-4">
-					<span>Location: <span class="location">Beatty Gameroom</span></span>
-				</div>
-				<div class="col-md-4">
-					<span>Date: <span class="date">9-12-15</span></span>
-				</div>
-				<div class="col-md-4">
-					<span>Time: <span class="time">12:15 pm</span></span>
-				</div>
-			</div>
-			
-		</div>
-
-		<div class="bottom">
-		 	<p class="description">I am looking to play pool with two other people. I am pretty decent (only get the 8 ball in on half of my breaks)</p>
-
-		 	<div class="row">
-				<div class="col-md-10 left-col">
-					<span>Posted on: <span class="postDate">September 23, 3005 at 1:34 pm</span></span>
-				</div>
-				<div class="col-md-2">
-					<button class="btn btn-primary">Comment</button>
-				</div>
-			</div>
-		 	
-		 
-		</div>
+	<div class="col-md-6">
+		<h3>Posts that interest you</h3>
+		<% if @related_posts.any? %>
+			<%= render @related_posts %>
+		<% else %>
+			<i> No posts to show. Make sure to set up your preferred categories in your <%= link_to "account settings", edit_account_path(current_account) %>.</i>
+		<% end %>
 	</div>
-
 </div>
+

@@ -1,7 +1,20 @@
 module SessionsHelper
+
 	# Logs in the given account.
   def log_in(account)
-    session[:account_id] = account.id
+    session[:account_id] = account.id  # automatically encrypted, no session hijacking
+  end
+
+  # Returns true if the account is logged in, false otherwise.
+  def logged_in?
+    !current_account.nil?
+  end
+
+  # Logs out the current account.
+  def log_out
+    forget(current_account)
+    session.delete(:account_id)
+    @current_account = nil
   end
 
   # Returns the account corresponding to the remember token cookie.
@@ -17,12 +30,7 @@ module SessionsHelper
     end
   end
 
-  # Returns true if the account is logged in, false otherwise.
-  def logged_in?
-    !current_account.nil?
-  end
-
-  # Remembers a account in a persistent session.
+  # Remembers an account in a persistent session.
   def remember(account)
     account.remember
     cookies.permanent.signed[:account_id] = account.id
@@ -36,11 +44,19 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
-  # Logs out the current account.
-  def log_out
-  	forget(current_account)
-    session.delete(:account_id)
-    @current_account = nil
+  # Returns true if the given account is the current account.
+  def current_account?(account)
+    account == current_account
   end
 
+  # Redirects to stored location (or to the default).
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.url if request.get? # only for get requests. A user could technically delete their cookie then submit a form
+  end
 end

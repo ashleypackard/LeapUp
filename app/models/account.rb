@@ -1,8 +1,10 @@
 class Account < ActiveRecord::Base
 
 	attr_accessor :remember_token
+  attr_accessor :updating_password # virtual attribute to detect update password form
 
-	has_many :account_categories, dependent: :destroy
+  has_many :account_categories, dependent: :destroy
+	has_many :categories, through: :account_categories
 	has_many :posts, dependent: :destroy
 	has_many :comments, dependent: :destroy
 
@@ -17,16 +19,22 @@ class Account < ActiveRecord::Base
             				format: { with: VALID_EMAIL_REGEX },
            					uniqueness: { case_sensitive: false}
 
-	validates :password, presence: true, length: {minimum: 6}, on: :create
-	# validates :password, length: {minimum: 6}, on: :update, allow_blank: :true
+  validates :password, presence: true, length: {minimum: 6}, on: :create
+  validates :password, presence: true, length: {minimum: 6}, if: :updating_password?
+  # validates :password, presence: true, length: {minimum: 6}, on: :update, allow_blank: true
+  #validates :password, presence: true, length: {minimum: 6}, on: :create
+	#validates :password, presence: true, length: {minimum: 6}, allow_blank: true
+	#validates :password, length: {minimum: 6}, on: :update, allow_blank: :true
 
 	VALID_PHONE_REGEX = /\A[\d]{10}\z/i
 	validates :phone_number, length: {maximum: 10},
 													 format: {with: VALID_PHONE_REGEX},
 													 allow_blank: true
- 
 
- # Returns the hash digest of the given string.
+  def updating_password?
+    updating_password
+  end
+  # Returns the hash digest of the given string.
   def Account.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost

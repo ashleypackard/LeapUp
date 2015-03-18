@@ -1,25 +1,29 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'accounts#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
   resources :accounts do
-  resources :posts, shallow: true do
+    # adds update_password to the collection of REST routes
+    # collection do
+    #   patch 'update_password'
+    # end
+    patch 'update_password', on: :member
+    patch 'update_categories', on: :member
+    # not all posts/comments need to be nested
+    resources :posts, shallow: true do
       resources :comments, only: [:index, :new, :create]
     end
   end
   resources :comments, only: [:edit, :update, :destroy]
   resources :posts, only: [:index]
 
+  get    'register'=> 'accounts#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-
-  get 'home' => 'accounts#home'
-  get 'comments/new'
-  get 'comments/edit'
 
   #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"

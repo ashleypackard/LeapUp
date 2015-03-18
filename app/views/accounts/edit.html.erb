@@ -1,67 +1,63 @@
 <%= content_for(:title, "Settings") %>
 <h1>Account Settings</h1>
-<div class="row">
-	<div class="form-group col-md-6" id="edit_form">
-		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
-			<% if @account.errors.any? %>
-				<div id="error_explanation">
-					<h4>
-						<%= pluralize(@account.errors.count, "error") %> prohibited
-						this account from being saved:
-					</h4>
-					<ul>
-						<% @account.errors.full_messages.each do |msg| %>
-						<li><%= msg %></li>
-						<% end %>
-					</ul>
-				</div>
+<% if @account.errors.any? %>
+	<div id="error_explanation">
+		<h4>
+			<%= pluralize(@account.errors.count, "error") %> prohibited
+			this account from being saved:
+		</h4>
+		<ul>
+			<% @account.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
 			<% end %>
-
+		</ul>
+	</div>
+<% end %>
+<div class="row">
+	<div class="form-group col-md-6 right-border">
+		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
 			<%= f.label :first_name, 'First Name: ' %>
-			<%= f.text_field :first_name, placeholder: "Joe", class: "form-control" %>
+			<%= f.text_field :first_name, required: true, placeholder: "Joe", class: "form-control" %>
 			<%= f.label :last_name, 'Last Name: ' %>
-			<%= f.text_field :last_name, placeholder: "Smith", class: "form-control" %>
+			<%= f.text_field :last_name, required: true, placeholder: "Smith", class: "form-control" %>
 			<%= f.label :email, 'Email: ' %>
 			<%= f.text_field :email, readonly: true, class: "form-control" %>
 			<%= f.label :description, 'Bio: ' %>
 			<%= f.text_area :description, placeholder: "Add something about yourself...", class: "form-control" %>
-
-			<div id="submit_container">
-				<%= f.submit class: "btn btn-primary", id: "sign_up_btn" %>	
+			<div class="submit_container">
+				<%= f.submit class: "btn btn-primary short_btn" %>	
 			</div>
 		<% end %>
 
 		<h2>Change Password</h2>
-		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
-			<% if @account.errors.any? %>
-				<div id="error_explanation">
-					<h4>
-						<%= pluralize(@account.errors.count, "error") %> prohibited
-						this account from being saved:
-					</h4>
-					<ul>
-					<% @account.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-				</ul>
-			</div>
-			<% end %>
-
+		<%= form_for @account, html: { id: "sign_up_form"}, url: update_password_account_path(@account) do |f| %>
 			<%= f.label :password, 'Password: ' %>
 			<%= f.password_field :password, required: true, placeholder: "Password", class: "form-control" %>
 			<%= f.label :password_confirmation, 'Confirm Password: ' %>
 			<%= f.password_field :password_confirmation, required: true, placeholder: "Password Again", class: "form-control" %>
-		
-			<div id="submit_container">
-				<%= f.submit "Change Password", class: "btn btn-primary", id: "sign_up_btn" %>	
+			<div class="submit_container">
+				<%= f.submit "Change Password", class: "btn btn-primary short_btn" %>	
 			</div>
 		<% end %>
 	</div>
 
-	<div class="col-md-6" id="delete_container">
-		<h3>We're sorry to see you go!</h3>
-		<%= link_to 'Delete Your Account', account_path(@account), class: "btn btn-danger",
-		method: :delete,
-		data: {confirm: "Are you sure?"} %>
-	</div>
-</div>
+	<div class="col-md-6">
+		<h3>Choose your categories</h3>
+		<%= form_for @account, html: { id: "category_select"}, url: update_categories_account_path(@account) do |f| %>
+			<% @categories.each do |c| %>
+				<%= label_tag condenseCategoryName(c.name) do %>
+					<%= check_box_tag "categories[]", c.id, @account.categories.include?(c), id: condenseCategoryName(c.name) %>
+					<span><%= c.name %></span>
+				<% end %>				
+			<% end %>
+			<div class="submit_container">
+				<%= f.submit "Update Categories", class: "btn btn-primary short_btn" %>	
+			</div>
+		<% end %>
+
+		<div id="delete_container">
+			<h3>Delete your account</h3>
+			<%= link_to 'Delete Forever', account_path(@account), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+		</div> <!-- end delete_container -->
+	</div> <!-- end col-md-6 -->
+</div> <!-- row -->

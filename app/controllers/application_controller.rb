@@ -4,13 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  before_filter :logged_in_user
-
+  before_action :require_login
 
   private
 		# Confirms a logged-in user.
-	  def logged_in_user
+	  def require_login
 	    unless logged_in?
+	    	store_location
 	      flash[:danger] = "Please log in to access this part of the site."
 	      redirect_to login_path
 	    end
