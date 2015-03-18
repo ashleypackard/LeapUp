@@ -4,16 +4,17 @@ class PostsController < ApplicationController
   	@posts = Post.all.paginate(page: params[:page], :per_page => 15)
   end
 
-  # renders new.html.erb view ( make new post page )
+    # renders new.html.erb view ( make new post page )
 	def new
-		@post = Post.new
+		@account = Account.find(params[:account_id])
+		@post = @account.posts.new
 	end
 
 	# Action to insert new post into database
 	def create
 		@post = Post.new(post_params)
 		if @post.save
-				redirect_to @post
+				redirect_to post_path
 			else
 				# dont redirect if the form valication from the model fails
 				# instead return to the posts page and show any errors
@@ -51,6 +52,6 @@ class PostsController < ApplicationController
 
 	private
 		def post_params
-			params.require(:post).permit(:title, :body, :location, :meeting_date, :meeting_time, :account_id, :category_id)
+			params.require(:post).permit(:title, :body, :location, :meeting_date, :meeting_time, :category_id)
 		end
 end
