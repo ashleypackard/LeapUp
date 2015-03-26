@@ -32,8 +32,28 @@ abbr {
 	color: #0025A4;
 }
 
+.post-top > .post-title a {
+ text-decoration: none;
+ color: navy;
+}
+
+.post-top > .post-title a:hover {
+	text-decoration: none;
+	top: -4px;
+	position: relative;
+}
+
+.side-bar-right
+{
+  border-right: 1px solid #D3D3D3;
+}
+
 .post-container a {
 	color: #000;
+}
+
+.post-delete {
+ left: 70px;
 }
 
 .triangle  {
@@ -92,11 +112,10 @@ abbr {
 }
 
 .post-posted-on-date {
-	float: right;
 	font-size: 12px;
 	color: #888;
-	margin-bottom:3px;
-	margin-right:2px;
+	top: 15px;
+	left: 30px;
 }
 
 // CARDIO -----------------------------

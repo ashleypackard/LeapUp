@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+	before_action :correct_account,   only: :destroy
+
   def index
   	@posts = Post.all.paginate(page: params[:page], :per_page => 15)
   end
@@ -12,9 +14,9 @@ class PostsController < ApplicationController
 
 	# Action to insert new post into database
 	def create
-		@post = Post.new(post_params)
+		@post = current_account.posts.build(post_params)
 		if @post.save
-				redirect_to post_path
+				redirect_to posts_path
 			else
 				# dont redirect if the form valication from the model fails
 				# instead return to the posts page and show any errors
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
 	# renders show.html.erb ( show the new post )
 	def show
 		@post = Post.find(params[:id])
+		@comments = @post.comments.all
 	end
 
 	# renders edit.html.erb ( edit a post )
@@ -45,13 +48,18 @@ class PostsController < ApplicationController
 
 	# Action to delete post
 	def destroy
-		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to view_feed_path # TODO: Once the "View Feed" page is implemented put the correct path here.
+		flash[:success] = "Post deleted"
+		redirect_to posts_path
 	end
 
 	private
 		def post_params
 			params.require(:post).permit(:title, :body, :location, :meeting_date, :meeting_time, :category_id)
 		end
+
+		def correct_account
+      @post = current_account.posts.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
+    end
 end

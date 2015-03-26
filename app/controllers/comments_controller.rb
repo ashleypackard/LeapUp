@@ -1,18 +1,23 @@
 class CommentsController < ApplicationController
+	before_action :correct_account,   only: :destroy
 
   def index
   end
 
   # renders new.html.erb view ( make new comment page )
 	def new
-		@comment = Comment.new
+		@account = Account.find(current_account)
+		@comment = @account.posts.new
+		@post = Post.find(params[:post_id])
+		@comments = @post.comments.all
 	end
 
 	# Action to insert new comment into database
 	def create
-		@comment = Comment.new(comment_params)
+		@post = Post.find(params[:post_id])
+		@comment = current_account.posts.find(@post).comments.build(comment_params)
 		if @comment.save
-				redirect_to @comment
+				redirect_to post_path(@post)
 			else
 				# dont redirect if the form valication from the model fails
 				# instead return to the comments page and show any errors
@@ -43,14 +48,20 @@ class CommentsController < ApplicationController
 
 	# Action to delete comment
 	def destroy
+		@post = Post.find(params[:post_id])
 		@comment = Comment.find(params[:id])
 		@comment.destroy
-		redirect_to view_feed_path # TODO: Once the sessions are implemented we'll want to redirect to the post the comment was made on
+		redirect_to post_path(@post)
 	end
 
 	private
 		def comment_params
 			params.require(:comment).permit(:body, :account_id, :post_id)
 		end
+
+		def correct_account
+      @comment = current_account.comments.find_by(id: params[:id])
+      redirect_to root_url if @comment.nil?
+    end
 end
 

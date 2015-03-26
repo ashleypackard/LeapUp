@@ -9,7 +9,7 @@
     </span>
     <%= image_tag "#{condenseCategoryName(post.category.name)}.png", class: "post-symbol" %>
 	
-		<h4 class="post-title"><%= post.title %></h4>
+		<h4 class="post-title"><%= link_to post.title, post_path(post) %></h4>
 		<span class="post-category"><%= post.category.name %></span>
     <div class="post-details">
     	<span class="post-location">Meet at <%= post.location %></span>
@@ -21,10 +21,31 @@
 	
 	<div class='post-bottom'>
 		<p class="post-body"><%= post.body %></p>
-  	<span class="post-posted-on-date">Posted 
-  		<abbr title="<%= "#{(post.created_at).in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y at %I:%M %p")}" %>">
-  			<%= "#{time_ago_in_words(post.created_at)} ago" %>
-  		</abbr>
-  	</span>
+		<div class="post-bottom-details row">
+			<div class="col-md-4 post-leave-comment">
+				<%= link_to new_post_comment_path(post) do %>
+					<span class="btn btn-default">
+					<i class="glyphicon glyphicon-bullhorn"></i>
+					<span>Leave Comment</span>
+					</span>
+				<% end %>
+			</div>
+			<div class="col-md-4 post-posted-on-date">
+				Posted 
+				<abbr title="<%= "#{(post.created_at).in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y at %I:%M %p")}" %>">
+				<%= "#{time_ago_in_words(post.created_at)} ago" %>
+				</abbr>
+			</div>
+			<div class="col-md-4 post-delete">
+				<% if current_account?(post.account) %>
+					<%= link_to post, method: :delete, data: { confirm: "Are you sure?"} do %>
+						<span class="btn btn-default">
+						<i class="glyphicon glyphicon-trash"></i>
+						<span>Delete</span>
+						</span>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>

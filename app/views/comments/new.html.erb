@@ -1,2 +1,11 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<%= content_for(:title, "Leave Comment") %>
+<div class="row">
+	<div class="form-group col-md-6 col-md-offset-1 side-bar-right">
+		<%= render :partial =>"posts/post", locals: {post: @post} %>
+		<%= render @comments %>
+	</div>
+
+	<div class="form-group col-md-3 col-md-offset-1">
+		<h3>Leave a comment...</h3>
+	</div>
+</div>

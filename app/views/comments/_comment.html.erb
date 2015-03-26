@@ -1,0 +1,33 @@
+<div class="comment-container <%= condenseCategoryName(comment.post.category.name) %>-category">
+	<div class="comment-top">
+		<%= link_to account_path(comment.account) do %>
+			<span class="comment-author">
+        <i class="glyphicon glyphicon-user"></i>
+        <span><%="#{comment.account.first_name} #{comment.account.last_name}"%></span>
+      <div class="comment-triangle"></div>
+    	</span>
+   	<% end %>
+
+    <div class="comment-delete">
+				<% if current_account?(comment.account) %>
+					<%= link_to comment_path(comment, :post_id => comment.post.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+						<span class="comment-delete-span btn btn-default">
+			        <i class="glyphicon glyphicon-trash"></i>
+			        <span>Delete</span>
+			  		</span>
+			  	<% end %>
+			  <% end %>
+			</div>
+	</div>
+	
+	<div class='comment-bottom'>
+		<p class="comment-body"><%= comment.body %></p>
+
+		<div class="comment-commented-on-date">
+			Posted 
+	  		<abbr title="<%= "#{(comment.created_at).in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y at %I:%M %p")}" %>">
+	  			<%= "#{time_ago_in_words(comment.created_at)} ago" %>
+	  		</abbr>
+		</div>
+	</div>
+</div>

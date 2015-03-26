@@ -26,7 +26,7 @@
 			<%= f.label :meeting_time, "Meeting Time: " %>
 			<%= f.time_select :meeting_time, required: true, ignore_date: true, class: 'form-control' %> 
 			<%= f.label :category_id, "Category: " %>
-			<%= f.collection_select :category, Category.all, :id, :name, class: 'form-control' %> 
+			<%= f.collection_select :category_id, Category.all, :id, :name, class: 'form-control' %> 
 			<%= f.label :body, "Body: " %>
 			<%= f.text_area :body, required: true, class: 'form-control' %> 
 
