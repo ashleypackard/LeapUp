@@ -17,7 +17,7 @@ abbr {
 .comment-container {
 	width: 90%;
 	margin: 0 auto;
-	border: 1px solid #808080;
+	border: 1px solid #A8A8A8;
 	border-radius: 10px;
 	margin-bottom: 20px;
 	overflow: hidden;
@@ -82,120 +82,120 @@ abbr {
 }
 
 // CARDIO -----------------------------
-.cardio-category div > p.comment-body {
+.cardio-category p.comment-body {
 	border-left: 2px outset #008000;
 }
 
-.cardio-category div > span.comment-author{
+.cardio-category span.comment-author{
 	background: #BDFEB3;
 }
 
-.cardio-category div > span > div.comment-triangle {
+.cardio-category div.comment-triangle {
 	border-top-color: #BDFEB3;
 }
 
 // GYM ---------------------------------
-.gym-category div > p.comment-body {
+.gym-category p.comment-body {
 	border-left: 2px outset #0048FF;
 }
 
-.gym-category div > span.comment-author{
+.gym-category span.comment-author{
 	background: #A6BFFF;
 }
 
-.gym-category div > span > div.comment-triangle {
+.gym-category div.comment-triangle {
 	border-top-color: #A6BFFF;
 }
 
 // FITNESS ---------------------------------
-.fitness-category div > p.comment-body {
+.fitness-category p.comment-body {
 	border-left: 2px outset #FA6173;
 }
 
-.fitness-category div > span.comment-author{
+.fitness-category span.comment-author{
 	background: #FFB3BC;
 }
 
-.fitness-category div > span > div.comment-triangle {
+.fitness-category div.comment-triangle {
 	border-top-color: #FFB3BC;
 }
 
 // MOVIES ---------------------------------
-.movies-category div > p.comment-body {
+.movies-category p.comment-body {
 	border-left: 2px outset #CCAC00;
 }
 
-.movies-category div > span.comment-author{
+.movies-category span.comment-author{
 	background: #FFDC6F;
 }
 
-.movies-category div > span > div.comment-triangle {
+.movies-category div.comment-triangle {
 	border-top-color: #FFDC6F;
 }
 
 // VIDEO GAMES ---------------------------------
-.videogames-category div > p.comment-body {
+.videogames-category p.comment-body {
 	border-left: 2px outset #FC7805;
 }
 
-.videogames-category div > span.comment-author{
+.videogames-category span.comment-author{
 	background: #FF9538;
 }
 
-.videogames-category div > span > div.comment-triangle {
+.videogames-category div.comment-triangle {
 	border-top-color: #FF9538;
 }
 
 // MUSICAL INSTRUMENTS ---------------------------------
-.musicalinstruments-category div > p.comment-body {
+.musicalinstruments-category p.comment-body {
 	border-left: 2px outset #25CFAA;
 }
 
-.musicalinstruments-category div > span.comment-author{
+.musicalinstruments-category span.comment-author{
 	background: #25CFAA;
 }
 
-.musicalinstruments-category div > span > div.comment-triangle {
+.musicalinstruments-category div.comment-triangle {
 	border-top-color: #25CFAA;
 }
 
 // STUDYING ---------------------------------
-.studying-category div > p.comment-body {
+.studying-category p.comment-body {
 	border-left: 2px outset #000000;
 }
 
-.studying-category div > span.comment-author{
+.studying-category span.comment-author{
 	background: #D5D5D5;
 }
 
-.studying-category div > span > div.comment-triangle {
+.studying-category div.comment-triangle {
 	border-top-color: #D5D5D5;
 }
 
 // EXPLORATION ---------------------------------
-.exploration-category div > p.comment-body {
+.exploration-category p.comment-body {
 	border-left: 2px outset #AA5FFA;
 }
 
-.exploration-category div > span.comment-author{
+.exploration-category span.comment-author{
 	background: #D8BDF5;
 }
 
-.exploration-category div > span > div.comment-triangle {
+.exploration-category div.comment-triangle {
 	border-top-color: #D8BDF5;
 }
 
 // ON CMAPUS EVENTS ---------------------------------
 
-.oncampusevents-category div > p.comment-body {
+.oncampusevents-category p.comment-body {
 	border-left: 2px outset #70B400;
 }
 
-.oncampusevents-category div > span.comment-author{
+.oncampusevents-category span.comment-author{
 	background: #C7F876;
 }
 
-.oncampusevents-category div > span > div.comment-triangle {
+.oncampusevents-category div.comment-triangle {
 	border-top-color: #C7F876;
 }
 
