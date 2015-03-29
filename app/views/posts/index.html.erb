@@ -2,10 +2,36 @@
 <h1>View Posts Feed</h1>
 <div class="row">
 	<div class="form-group col-md-3 col-md-offset-1" id="search_bar">
-		<h3>Search Posts</h3>
+		<h3>Filter Posts</h3>
 
 		<div id="search_box">
-			<p>The search box will go here...</p>
+			<h4>By: Date</h4>
+			<div class="date-filter-buttons">
+				<%= link_to posts_path({:date => "desc"}) do %>
+					<div class="btn btn-default">
+						<i class="glyphicon glyphicon-arrow-down"></i>
+						<span>Newest</span>
+					</div>
+				<% end %>	
+
+				<%= link_to posts_path({:date => "asc"}) do %>
+					<div class="btn btn-default">
+						<i class="glyphicon glyphicon-arrow-up"></i>
+						<span>Oldest</span>
+					</div>
+				<% end %>	
+			</div>
+			<h4>By Category:</h4>
+			<div class="category-filter-buttons">
+				<% @categories.each do |c| %>
+					<%= link_to posts_path({:category => c.id}) do %>
+						<div class="btn btn-default">
+							<%= image_tag "#{condenseCategoryName(c.name)}.png", class: "filter-category-symbol" %>
+							<span><%= c.name %></span>
+						</div>
+					<% end %>	
+				<% end %>	
+			</div>
 		</div>
 	</div>
 

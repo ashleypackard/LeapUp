@@ -3,7 +3,16 @@ class PostsController < ApplicationController
 	before_action :correct_account,   only: :destroy
 
   def index
-  	@posts = Post.all.paginate(page: params[:page], :per_page => 15)
+  	if params[:category]
+  		# get the category_id
+  		@posts = Post.filter_by_category(params[:category]).sort_by_date(:desc).paginate(page: params[:page], :per_page => 15)
+  	elsif params[:date]
+  		@wanted_date = params[:date]
+  		@posts = Post.sort_by_date(@wanted_date.to_sym).paginate(page: params[:page], :per_page => 15)
+  	else
+  		@posts = Post.sort_by_date(:desc).paginate(page: params[:page], :per_page => 15)
+  	end
+  	@categories = Category.all
   end
 
     # renders new.html.erb view ( make new post page )

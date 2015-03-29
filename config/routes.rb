@@ -18,12 +18,12 @@ Rails.application.routes.draw do
     end
   end
   resources :comments, only: [:edit, :update, :destroy]
-  resources :posts, only: [:index]
 
-  get    'register'=> 'accounts#new'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  get 'posts', to: 'posts#index'
+  get    'register', to: 'accounts#new'
+  get    'login', to: 'sessions#new'
+  post   'login', to:  'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
   #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"

@@ -10,10 +10,13 @@
 #delete_container {
 	text-align: center;
 	margin: 0 auto;
+	margin-top: 50px;
+	border-top: 1px solid lightgrey;
 }
 
 input, textarea {
 	margin-bottom: 10px;
+	resize: none;
 }
 
 .short_btn {
@@ -39,7 +42,7 @@ input, textarea {
 	box-sizing: border-box;
 }
 
-input, textare, select {
+input, textarea, select {
 	border: 1px solid #bbb;
 	width: 100%;
 	margin-bottom: 10px;
@@ -65,4 +68,13 @@ input {
 	//box-shadow: 3px 3px 5px #888888;
 	border: 1px solid black;
 	margin: 10px;
+}
+
+.preferred-category-symbol {
+	height: 30px;
+	width: 30px;
+}
+
+#category_select label {
+	display: block !important;
 }
