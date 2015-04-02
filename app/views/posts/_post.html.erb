@@ -37,7 +37,7 @@
 				<%= link_to new_post_comment_path(post) do %>
 					<span class="btn btn-default">
 					<i class="glyphicon glyphicon-bullhorn"></i>
-					<span>Leave Comment</span>
+					<span>Leave Comment (<%= post.comments.count %>)</span>
 					</span>
 				<% end %>
 			</div>
