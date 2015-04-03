@@ -25,7 +25,9 @@
 			<%= f.label :description, 'Bio: ' %>
 			<%= f.text_area :description, placeholder: "Add something about yourself...", class: "form-control" %>
 			<div class="submit_container">
-				<%= f.submit class: "btn btn-primary short_btn" %>	
+				<%= button_tag(type: 'submit', class: "btn btn-default short_btn") do %>
+					 <i class="glyphicon glyphicon-wrench"></i> Update Account
+				<% end %>
 			</div>
 		<% end %>
 
@@ -36,28 +38,39 @@
 			<%= f.label :password_confirmation, 'Confirm Password: ' %>
 			<%= f.password_field :password_confirmation, required: true, placeholder: "Password Again", class: "form-control" %>
 			<div class="submit_container">
-				<%= f.submit "Change Password", class: "btn btn-primary short_btn" %>	
+				<%= button_tag(type: 'submit', class: "btn btn-default short_btn") do %>
+					 <i class="glyphicon glyphicon-cog"></i> Change Password
+				<% end %>	
 			</div>
 		<% end %>
 	</div>
 
 	<div class="col-md-6">
 		<h3>Choose your categories</h3>
-		<%= form_for @account, html: { id: "category_select"}, url: update_categories_account_path(@account) do |f| %>
-			<% @categories.each do |c| %>
-				<%= label_tag condenseCategoryName(c.name) do %>
-					<%= check_box_tag "categories[]", c.id, @account.categories.include?(c), id: condenseCategoryName(c.name) %>
-					<span><%= c.name %></span>
-				<% end %>				
+		<div>
+			<%= form_for @account, html: { id: "category_select"}, url: update_categories_account_path(@account) do |f| %>
+				<% @categories.each do |c| %>
+					<%= label_tag condenseCategoryName(c.name) do %>
+						<div class="row">
+							<div class="col-md-1"><%= check_box_tag "categories[]", c.id, @account.categories.include?(c), id: condenseCategoryName(c.name) %></div>
+							<div class="col-md-1"><%= image_tag "#{condenseCategoryName(c.name)}.png", class: "preferred-category-symbol" %></div>
+							<div class="col-md-10"><%= c.name %></div>
+						</div>
+					<% end %>				
+				<% end %>
+				<div class="submit_container">
+					<%= button_tag(type: 'submit', class: "btn btn-default short_btn") do %>
+						 <i class="glyphicon glyphicon-heart"></i> Update Categories
+					<% end %>
+				</div>
 			<% end %>
-			<div class="submit_container">
-				<%= f.submit "Update Categories", class: "btn btn-primary short_btn" %>	
-			</div>
-		<% end %>
-
-		<div id="delete_container">
-			<h3>Delete your account</h3>
-			<%= link_to 'Delete Forever', account_path(@account), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-		</div> <!-- end delete_container -->
+		</div>
 	</div> <!-- end col-md-6 -->
 </div> <!-- row -->
+
+<div id="delete_container">
+	<h3>Delete your account</h3>
+	<p>We're sorry to see you go! Please tell us why you no longer want an account:</p>
+	<p> leapup-accounts@gmail.com</p>
+	<%= link_to 'Delete Forever', account_path(@account), class: "btn btn-danger short_btn", method: :delete, data: {confirm: "Are you sure?"} %>
+</div> <!-- end delete_container -->

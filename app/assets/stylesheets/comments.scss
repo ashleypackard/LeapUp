@@ -1,3 +1,208 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+abbr {
+	border-bottom: none !important;
+	&:hover{
+		cursor: pointer;
+		color: #575757;
+	}
+}
+
+.comment-box {
+	height: 250px !important;
+}
+
+.comment-container {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid #A8A8A8;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.comment-container a:hover {
+	text-decoration: none;
+	color: #0025A4;
+}
+
+.comment-container a {
+	color: #000;
+}
+
+.comment-delete-span {
+	float: right;
+}
+
+.comment-triangle  {
+	width: 0px;
+	height: 0px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #FFF;
+	float: right;
+	position: relative;
+	top: 24px;
+	right: 20px;
+}
+
+.comment-author {
+	float: left;
+	border-radius: 10px;
+	background: white;
+	padding: 5px;
+	padding-left: 10px;
+}
+
+.comment-top, .comment-bottom {
+	padding: 10px;
+}
+
+.comment-top {
+	height: 40px;
+}
+
+.side-bar-right
+{
+	border-right: 1px solid #D3D3D3;
+}
+
+.comment-commented-on-date {
+	font-size: 12px;
+	color: #888;
+	top: 15px;
+	left: 30px;
+	text-align: center;
+}
+
+.comment-delete {
+	left: 70px;
+}
+
+// CARDIO -----------------------------
+.cardio-category p.comment-body {
+	border-left: 2px outset #008000;
+}
+
+.cardio-category span.comment-author{
+	background: #BDFEB3;
+}
+
+.cardio-category div.comment-triangle {
+	border-top-color: #BDFEB3;
+}
+
+// GYM ---------------------------------
+.gym-category p.comment-body {
+	border-left: 2px outset #0048FF;
+}
+
+.gym-category span.comment-author{
+	background: #A6BFFF;
+}
+
+.gym-category div.comment-triangle {
+	border-top-color: #A6BFFF;
+}
+
+// FITNESS ---------------------------------
+.fitness-category p.comment-body {
+	border-left: 2px outset #FA6173;
+}
+
+.fitness-category span.comment-author{
+	background: #FFB3BC;
+}
+
+.fitness-category div.comment-triangle {
+	border-top-color: #FFB3BC;
+}
+
+// MOVIES ---------------------------------
+.movies-category p.comment-body {
+	border-left: 2px outset #CCAC00;
+}
+
+.movies-category span.comment-author{
+	background: #FFDC6F;
+}
+
+.movies-category div.comment-triangle {
+	border-top-color: #FFDC6F;
+}
+
+// VIDEO GAMES ---------------------------------
+.videogames-category p.comment-body {
+	border-left: 2px outset #FC7805;
+}
+
+.videogames-category span.comment-author{
+	background: #FF9538;
+}
+
+.videogames-category div.comment-triangle {
+	border-top-color: #FF9538;
+}
+
+// MUSICAL INSTRUMENTS ---------------------------------
+.musicalinstruments-category p.comment-body {
+	border-left: 2px outset #25CFAA;
+}
+
+.musicalinstruments-category span.comment-author{
+	background: #25CFAA;
+}
+
+.musicalinstruments-category div.comment-triangle {
+	border-top-color: #25CFAA;
+}
+
+// STUDYING ---------------------------------
+.studying-category p.comment-body {
+	border-left: 2px outset #000000;
+}
+
+.studying-category span.comment-author{
+	background: #D5D5D5;
+}
+
+.studying-category div.comment-triangle {
+	border-top-color: #D5D5D5;
+}
+
+// EXPLORATION ---------------------------------
+.exploration-category p.comment-body {
+	border-left: 2px outset #AA5FFA;
+}
+
+.exploration-category span.comment-author{
+	background: #D8BDF5;
+}
+
+.exploration-category div.comment-triangle {
+	border-top-color: #D8BDF5;
+}
+
+// ON CMAPUS EVENTS ---------------------------------
+
+.oncampusevents-category p.comment-body {
+	border-left: 2px outset #70B400;
+}
+
+.oncampusevents-category span.comment-author{
+	background: #C7F876;
+}
+
+.oncampusevents-category div.comment-triangle {
+	border-top-color: #C7F876;
+}
+
+div > p.comment-body {
+	padding: 10px;
+}

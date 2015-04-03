@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
 	validates :account_id, presence: true
 	validates :category_id, presence: true
 
-	default_scope -> { order(created_at: :desc) }
+	scope :filter_by_category, -> (wanted_category_id){where(category_id: wanted_category_id )}
+	scope :sort_by_date, -> (wanted_date){order(updated_at: wanted_date )}
 	
 end

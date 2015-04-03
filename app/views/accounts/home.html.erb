@@ -1,12 +1,12 @@
 <h1><%= "#{@current_account.first_name} #{@current_account.last_name}" %></h1>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-6 right-border">
 		<h3>Your recent posts</h3>
 		<% if @recent_posts.any? %>
 			<%= render @recent_posts %>
 		<% else %>
-			<i>You do not have any posts yet! Why don't you make your first <%= link_tag "post", new_account_post_path(current_account) %>?</i>
+			<i>You do not have any posts yet! Why don't you make your first <%= link_to "post", new_account_post_path(current_account) %>?</i>
 		<% end %>
 	</div>
 

@@ -7,10 +7,10 @@ class AccountsController < ApplicationController
   end
 
   def home
-  	@recent_posts = current_account.posts.order(:created_at).take(5)
+  	@recent_posts = current_account.posts.sort_by_date(:desc).take(5)
   	@related_posts = []
   	current_account.categories.each do |category|
-  		category.posts.take(3).each { |post| @related_posts.push(post) if post.account != current_account }
+  		category.posts.sort_by_date(:desc).take(3).each { |post| @related_posts.push(post) if post.account != current_account }
   	end
   	@related_posts.shuffle!
   end
@@ -37,7 +37,7 @@ class AccountsController < ApplicationController
 	# renders show.html.erb ( a users profile page )
 	def show
 		@account = Account.find(params[:id])
-		@posts_list = @account.posts.paginate(page: params[:page], :per_page => 15)
+		@posts_list = @account.posts.sort_by_date(:desc).paginate(page: params[:page], :per_page => 10)
 		@category_list = @account.categories
 	end
 

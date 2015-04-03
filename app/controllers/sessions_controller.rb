@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	layout 'login', :only => [:new]
+	layout 'login', :only => [:new, :create]
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -14,7 +14,9 @@ class SessionsController < ApplicationController
       redirect_back_or root_url
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new', layout: "login"
+      params[:email] = params[:session][:email]
+      params.delete(:session)
+      render :action=> 'new'
     end
   end
 
