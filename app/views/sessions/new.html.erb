@@ -6,8 +6,9 @@
 				<%= form_for(:session, url: login_path) do |f| %>
 						
 					<%= f.label :email, 'Email: ' %>
-					<%= f.email_field :email, required: true, placeholder: "smithj@wit.edu", class: 'form-control' %>
 					
+					<%= f.email_field :email, value: (params[:email] ? params[:email] : "" ), required: true, placeholder: "smithj@wit.edu", class: 'form-control'%>	
+
 					<%= f.label :password, 'Password: ' %>
 					<%= f.password_field :password, required: true, placeholder: "******", class: 'form-control' %>
 					
