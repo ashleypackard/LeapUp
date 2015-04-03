@@ -34,14 +34,18 @@ class CommentsController < ApplicationController
 	# renders edit.html.erb ( edit a comment )
 	def edit
 		@comment = Comment.find(params[:id])
+		@account = Account.find(current_account)
+		@post = Post.find(@comment.post.id)
+		@comments = @post.comments.all
 	end
 
 	# Action to update a comment
 	def update
 		@comment = Comment.find(params[:id])
+		@post = Post.find(@comment.post.id)
 
 		if @comment.update(comment_params)
-			redirect_to @comment
+			redirect_to @post
 		else
 			render 'edit'
 		end

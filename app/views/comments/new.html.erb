@@ -12,10 +12,10 @@
 	<%= form_for [@post, @comment], html: {id: "new_comment_form"} do |f| %>
 	<% if @comment.errors.any? %>
 				    <div id="error_explanation">
-				      <h2>
+				      <h4>
 				        <%= pluralize(@comment.errors.count, "error") %> prohibited
 				        this comment from being saved:
-				      </h2>
+				      </h4>
 				      <ul>
 				        <% @comment.errors.full_messages.each do |msg| %>
 				          <li><%= msg %></li>
@@ -23,9 +23,8 @@
 				      </ul>
 				    </div>
 				    <% end %>
-	<%= f.text_area :body, required: true, class: 'form-control' %> 
-	<%= f.submit class: "btn btn-default btn btn-primary" %>
-
+	<%= f.text_area :body, required: true, placeholder: "Care to comment?",class: 'form-control comment-box' %> 
+	<%= f.submit class: "btn btn-primary" %>
 
 		<% end %>
 	</div>

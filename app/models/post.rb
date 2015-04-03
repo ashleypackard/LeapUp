@@ -13,6 +13,6 @@ class Post < ActiveRecord::Base
 	validates :category_id, presence: true
 
 	scope :filter_by_category, -> (wanted_category_id){where(category_id: wanted_category_id )}
-	scope :sort_by_date, -> (wanted_date){order(created_at: wanted_date )}
+	scope :sort_by_date, -> (wanted_date){order(updated_at: wanted_date )}
 	
 end

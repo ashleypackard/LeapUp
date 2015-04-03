@@ -6,10 +6,10 @@
 				<%= form_for [@account, @post], html: {id: "new_post_form"} do |f| %>
 					<% if @post.errors.any? %>
 				    <div id="error_explanation">
-				      <h2>
+				      <h4>
 				        <%= pluralize(@post.errors.count, "error") %> prohibited
 				        this account from being saved:
-				      </h2>
+				      </h4>
 				      <ul>
 				        <% @post.errors.full_messages.each do |msg| %>
 				          <li><%= msg %></li>
@@ -17,24 +17,28 @@
 				      </ul>
 				    </div>
 				    <% end %>
-			<%= f.label :title, "Title: " %>
-			<%= f.text_field :title, required: true, class: 'form-control' %> 
-			<%= f.label :locaiton, "Location: " %>
-			<%= f.text_field :location, required: true, class: 'form-control' %> 
-			<%= f.label :meeting_date, "Meeting Date: " %>
-			<%= f.date_select :meeting_date, required: true, order: [:day, :month, :year], class: 'form-control' %> 
-			<%= f.label :meeting_time, "Meeting Time: " %>
-			<%= f.time_select :meeting_time, required: true, ignore_date: true, class: 'form-control' %> 
-			<%= f.label :category_id, "Category: " %>
-			<%= f.collection_select :category_id, Category.all, :id, :name, class: 'form-control' %> 
-			<%= f.label :body, "Body: " %>
-			<%= f.text_area :body, required: true, class: 'form-control' %> 
+					<%= f.label :title, "Title: " %>
+					<%= f.text_field :title, required: true, class: 'form-control' %> 
+					<%= f.label :locaiton, "Location: " %>
+					<%= f.text_field :location, required: true, class: 'form-control' %> 
+					<%= f.label :meeting_date, "Meeting Date: " %>
+					<%= f.text_field :meeting_date, required: true, :'data-provide' => 'datepicker', :'data-date-format' => 'yyyy-mm-dd', class: 'form-control' %> 
+					<%= f.label :meeting_time, "Meeting Time: " %>		   
+					<%= f.text_field :meeting_time, required: true, class: 'form-control datetimepicker' %>
+					<%= f.label :category_id, "Category: " %>
+					<%= f.collection_select :category, Category.all, :id, :name, {prompt: "Select a Category"}, {class: "form-control"} %> 
+						<%= f.label :body, "Body: " %>
+					<%= f.text_area :body, required: true, class: 'form-control' %> 
 
-			<%= f.submit class: "btn btn-default btn btn-primary" %>
-
-
-		<% end %>
-
-			</div>
+					<%= f.submit class: "btn btn-default btn btn-primary" %>
+				<% end %>
+		</div>
 	</div>
+    <script type="text/javascript">
+      $(function () {
+          $('#post_meeting_time').datetimepicker({
+              format: 'LT'
+          });
+      });
+  </script>
 </div>

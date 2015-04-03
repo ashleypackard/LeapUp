@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'info/index'
-
-  get 'info/about'
-
-  get 'footer/about'
-
-  get 'footer/index'
-
   root 'accounts#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -32,8 +24,8 @@ Rails.application.routes.draw do
   get    'login', to: 'sessions#new'
   post   'login', to:  'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  get    'aboutus', to: 'info#aboutus'
-  get    'contactus', to: 'info#contactus'
+  get    'contact', to: 'company#index'
+  get    'about', to: 'company#show'
 
   #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"

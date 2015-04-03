@@ -1,12 +1,22 @@
 <div class="comment-container <%= condenseCategoryName(comment.post.category.name) %>-category">
 	<div class="comment-top">
-		<%= link_to account_path(comment.account) do %>
-			<span class="comment-author">
-        <i class="glyphicon glyphicon-user"></i>
-        <span><%="#{comment.account.first_name} #{comment.account.last_name}"%></span>
-      <div class="comment-triangle"></div>
-    	</span>
-   	<% end %>
+		<% if current_account?(comment.account)%>
+			<%= link_to edit_comment_path(comment) do %>
+				<span class="comment-author">
+	        <i class="glyphicon glyphicon-cog"></i>
+	        <span>Edit</span>
+	        <div class="comment-triangle"></div>
+    		</span>
+      <% end %>
+		<% else %>
+			<%= link_to account_path(comment.account) do %>
+				<span class="comment-author">
+	        <i class="glyphicon glyphicon-user"></i>
+	        <span><%="#{post.account.first_name} #{post.account.last_name}"%></span>
+	        <div class="comment-triangle"></div>
+    		</span>
+      <% end %>
+		<% end %>
 
     <div class="comment-delete">
 				<% if current_account?(comment.account) %>
