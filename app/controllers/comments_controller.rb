@@ -7,17 +7,18 @@ class CommentsController < ApplicationController
   # renders new.html.erb view ( make new comment page )
 	def new
 		@account = Account.find(current_account)
-		@comment = @account.posts.new
 		@post = Post.find(params[:post_id])
+		@comment = @post.comments.new
 		@comments = @post.comments.all
 	end
 
 	# Action to insert new comment into database
 	def create
 		@post = Post.find(params[:post_id])
-		@comment = current_account.posts.find(@post).comments.build(comment_params)
+		@comment = @post.comments.build(comment_params)
+		@comment.account_id = current_account.id
 		if @comment.save
-				redirect_to post_path(@post)
+				redirect_to @post
 			else
 				# dont redirect if the form valication from the model fails
 				# instead return to the comments page and show any errors
