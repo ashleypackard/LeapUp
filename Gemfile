@@ -32,10 +32,9 @@ gem 'bootstrap-datepicker-rails', '1.4.0'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
-group :production do
-	gem 'pg'
-	gem 'rails_12factor'
-end
+gem 'pg'
+gem 'rails_12factor'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
