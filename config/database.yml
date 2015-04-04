@@ -29,5 +29,7 @@ test:
   password:
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: leapUp-prod
+  pool: 5
+  timeout: 5000

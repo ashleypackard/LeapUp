@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use mysql2 as the database for Active Record
@@ -33,6 +32,10 @@ gem 'bootstrap-datepicker-rails', '1.4.0'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
 # Use Unicorn as the app server
 # gem 'unicorn'
 
