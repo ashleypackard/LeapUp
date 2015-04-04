@@ -15,7 +15,7 @@
 <% end %>
 <div class="row">
 	<div class="form-group col-md-6 right-border">
-		<%= form_for @account, html: { id: "sign_up_form"} do |f| %>
+		<%= form_for @account, html: { id: "sign_up_form", autocomplete: 'off'} do |f| %>
 			<%= f.label :first_name, 'First Name: ' %>
 			<%= f.text_field :first_name, required: true, placeholder: "Joe", class: "form-control" %>
 			<%= f.label :last_name, 'Last Name: ' %>
@@ -33,10 +33,10 @@
 
 		<h2>Change Password</h2>
 		<%= form_for @account, html: { id: "sign_up_form"}, url: update_password_account_path(@account) do |f| %>
-			<%= f.label :password, 'Password: ' %>
-			<%= f.password_field :password, required: true, placeholder: "Password", class: "form-control" %>
-			<%= f.label :password_confirmation, 'Confirm Password: ' %>
-			<%= f.password_field :password_confirmation, required: true, placeholder: "Password Again", class: "form-control" %>
+			<%= f.label :password, 'New Password: ' %>
+			<%= f.password_field :password, required: true, placeholder: "New Password", class: "form-control" %>
+			<%= f.label :password_confirmation, 'Confirm New Password: ' %>
+			<%= f.password_field :password_confirmation, required: true, placeholder: "New Password Again", class: "form-control" %>
 			<div class="submit_container">
 				<%= button_tag(type: 'submit', class: "btn btn-default short_btn") do %>
 					 <i class="glyphicon glyphicon-cog"></i> Change Password

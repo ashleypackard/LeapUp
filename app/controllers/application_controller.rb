@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
 	    end
 	  end
 
+	  def root_url_visit
+	  	unless logged_in?
+	      redirect_to login_path
+	  	end
+	  end
+
 end

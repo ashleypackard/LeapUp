@@ -8,14 +8,14 @@
           <span>Home</span>
         <% end %>
       </li>
-      <li class="<%= 'active' if params[:controller] == 'posts' && params[:action] == 'show'  %>">
+      <li class="<%= 'active' if params[:controller] == 'posts' && params[:action] == 'index'  %>">
         <%= link_to posts_path do %>
           <i class="glyphicon glyphicon-eye-open"></i>
           <span>View Feed</span>
          <% end %>
       </li>
       <li class="<%= 'active' if params[:controller] == 'posts' && params[:action] == 'new' %>">
-        <%= link_to new_account_post_path(@current_account) do %>
+        <%= link_to new_account_post_path(current_account) do %>
           <i class="glyphicon glyphicon-pencil"></i>
           <span>Make Post</span>
          <% end %>
@@ -23,15 +23,15 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown <%= 'active' if params[:id] && params[:controller] == 'accounts' && current_account?(Account.find(params[:id])) && (params[:action] == 'show' || params[:action] == 'edit')%>">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= "#{@current_account.first_name} #{@current_account.last_name}" %> <span class="caret"></span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= "#{current_account.first_name} #{current_account.last_name}" %> <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
           <li class="<%= 'active' if params[:id] && params[:controller] == 'accounts' && current_account?(Account.find(params[:id])) && params[:action] == 'show' %>">
-            <%= link_to account_path(@current_account) do %>
+            <%= link_to account_path(current_account) do %>
               <i class="glyphicon glyphicon-user"></i>
               <span>Profile</span>
             <% end %>
           <li class="<%= 'active' if params[:controller] == 'accounts' && params[:action] == 'edit' %>">      
-            <%= link_to edit_account_path(@current_account) do %>
+            <%= link_to edit_account_path(current_account) do %>
               <i class="glyphicon glyphicon-cog"></i>
               <span>Settings</span>
             <% end %>

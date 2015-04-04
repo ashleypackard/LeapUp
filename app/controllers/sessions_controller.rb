@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-	layout 'login', :only => [:new, :create]
-  skip_before_action :require_login, only: [:new, :create]
+	skip_before_action :require_login, only: [:new, :create]
+  layout 'login', :only => [:new, :create]
 
   def new
     redirect_to root_url if logged_in?

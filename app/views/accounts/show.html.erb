@@ -29,7 +29,11 @@
 	</div>
 
 	<div class="col-md-6 col-md-offset-1">
+		<% if @posts_list.any? %>
 			<%= render @posts_list %>
 			<%= will_paginate @posts_list %>
+		<% else %>
+			<i>You do not have any posts yet! Why don't you make your first <%= link_to "post", new_account_post_path(current_account) %>?</i>
+		<% end %>
 	</div>
 </div>

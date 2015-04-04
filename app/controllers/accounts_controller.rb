@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
 	layout 'login', only: [:new]
-	skip_before_action :require_login, only: [:new, :create]
+	skip_before_action :require_login, only: [:new, :create, :home]
+	before_action :root_url_visit, only: [:home]
 	before_action :validate_correct_account, only: [:edit, :update, :destroy]
 
   def index

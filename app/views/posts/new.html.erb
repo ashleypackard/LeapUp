@@ -3,7 +3,7 @@
 	<div class="col-md-6 col-md-offset-3">
 		<div class="post_form">
 			<span class="form_header">Make a Post</span>
-				<%= form_for [@account, @post], html: {id: "new_post_form"} do |f| %>
+				<%= form_for [@account, @post], html: {id: "new_post_form", autocomplete: 'off'} do |f| %>
 					<% if @post.errors.any? %>
 				    <div id="error_explanation">
 				      <h4>
@@ -26,7 +26,7 @@
 					<%= f.label :meeting_time, "Meeting Time: " %>		   
 					<%= f.text_field :meeting_time, required: true, class: 'form-control datetimepicker' %>
 					<%= f.label :category_id, "Category: " %>
-					<%= f.collection_select :category, Category.all, :id, :name, {prompt: "Select a Category"}, {class: "form-control"} %> 
+					<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Select a Category"}, {class: "form-control"} %> 
 						<%= f.label :body, "Body: " %>
 					<%= f.text_area :body, required: true, class: 'form-control' %> 
 
