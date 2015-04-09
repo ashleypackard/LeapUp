@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'errors/file_not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
   root 'accounts#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -26,6 +32,10 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get    'contact', to: 'company#index'
   get    'about', to: 'company#show'
+
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 
   #get 'profile', to: 'users#show'
   # You can have the root of your site routed with "root"
